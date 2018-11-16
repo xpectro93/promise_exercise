@@ -22,3 +22,39 @@
 // console.log(testNum(9));
 
 //////Part 2/////////
+
+// function whisperShout(str) {
+//   return new Promise(resolve => {
+//     console.log(str.toLowerCase());
+//     setTimeOut(() => resolve(str), 3000);
+//   }).then(result => {
+//     console.log(result.toUpperCase());
+//   });
+// }
+// whisperShout("promises");
+
+//second way
+
+// function whisperShout2(str) {
+//   return new Promise((resolve, reject) => {
+//     setTimeOut(() => {});
+//   });
+// }
+
+/////////////////// PArt 3
+
+function waitFact(arr) {
+  let ind = 0;
+  let interval = setInterval(() => {
+    if (ind < arr.length) {
+      new Promise((resolve, reject) => {
+        console.log(arr[ind]);
+        ind++;
+        resolve();
+      });
+    } else {
+      clearInterval(interval);
+    }
+  }, 1000);
+}
+waitFact([1, 2, 3]);
